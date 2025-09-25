@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block title %}Przetworzony tekst{% endblock %}
+
+{% block content %}
+    <h4 class="mb-3">Zawartość przetworzonego pliku</h4>
+
+    <div class="card bg-light text-dark p-1 mb-4">
+        {{ processed_text|linebreaks }}
+    </div>
+
+    <a href="{% url 'text_processor:text_file_form' %}" class="btn btn-secondary mt-4">Wróć do formularza</a>
+{% endblock %}

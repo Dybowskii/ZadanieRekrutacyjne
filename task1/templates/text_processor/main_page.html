@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Prześlij plik tekstowy{% endblock %}
+
+{% block content %}
+    <h4 class="mb-4">Prześlij plik tekstowy (.txt)</h4>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            {{ form.file.label_tag }}
+            {{ form.file }}
+            {% if form.file.errors %}
+                <div class="text-danger mt-1">
+                    {{ form.file.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Prześlij pesel{% endblock %}
+
+{% block content %}
+    <h4 class="mb-4">Podaj swój numer pesel</h4>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            {{ form.pesel.label_tag }}
+            {{ form.pesel }}
+            {% if form.pesel.errors %}
+                <div class="text-danger mt-1">
+                    {{ form.pesel.errors.0 }}
+                </div>
+            {% endif %}
+        </div>
+
+        <button type="submit" class="btn btn-primary">Wyślij</button>
+    </form>
+{% endblock %}
+

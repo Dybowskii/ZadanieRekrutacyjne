@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}Twój PESEL{% endblock %}
+
+{% block content %}
+    <h4 class="mb-4">Twój zweryfikowany numer PESEL:</h4>
+    <div class="card p-3 bg-light">
+        <p><strong>PESEL:</strong> {{ pesel }}</p>
+        <p><strong>Data urodzenia:</strong> {{ birth_date }}</p>
+        <p><strong>Płeć:</strong> {{ gender }}</p>
+    </div>
+
+    <a href="{% url 'pesel_app:pesel_form' %}" class="btn btn-secondary mt-4">Wróć do formularza</a>
+{% endblock %}
